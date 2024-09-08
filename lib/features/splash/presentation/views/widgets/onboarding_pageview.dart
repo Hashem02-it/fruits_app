@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+import 'package:fruits_app/core/utils/app_images.dart';
+import 'package:fruits_app/features/splash/presentation/views/widgets/pageitem_view.dart';
+
+class OnboardingPageview extends StatelessWidget {
+  const OnboardingPageview({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return PageView(
+      children: [
+        PageitemView(
+          image: Assets.assetsImagesItemViewpage1Image,
+          backgroungImage: Assets.assetsImagesItemViewpage1BackgroundImage,
+          subTitle:
+              'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
+          title: Row(
+            children: [
+              Text('مرحبًا بك في'),
+              Text('Fruit'),
+              Text('HUB'),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
