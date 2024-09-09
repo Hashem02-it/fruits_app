@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruits_app/core/utils/app_images.dart';
 
 class PageitemView extends StatelessWidget {
   const PageitemView(
@@ -27,9 +28,35 @@ class PageitemView extends StatelessWidget {
                   fit: BoxFit.fill,
                 ),
               ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: SvgPicture.asset(
+                  image,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text('تخط'),
+              ),
             ],
           ),
-        )
+        ),
+        SizedBox(
+          height: 64,
+        ),
+        title,
+        SizedBox(
+          height: 24,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(
+            subTitle,
+            textAlign: TextAlign.center,
+          ),
+        ),
       ],
     );
   }

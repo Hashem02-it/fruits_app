@@ -15,10 +15,29 @@ class OnboardingPageview extends StatelessWidget {
           subTitle:
               'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
           title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('مرحبًا بك في'),
               Text('Fruit'),
               Text('HUB'),
+            ],
+          ),
+        ),
+        PageitemView(
+          image: Assets.assetsImagesItemViewpage2Image,
+          backgroungImage: Assets.assetsImagesItemViewpage2BackgroundImage,
+          subTitle:
+              'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'ابحث وتسوق',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Cairo'),
+              ),
             ],
           ),
         ),
