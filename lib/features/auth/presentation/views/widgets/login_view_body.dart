@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_app/constants.dart';
 import 'package:fruits_app/core/utils/app_colors.dart';
+import 'package:fruits_app/core/utils/app_images.dart';
 import 'package:fruits_app/core/utils/app_text_styles.dart';
 import 'package:fruits_app/widgets/custom_button.dart';
 import 'package:fruits_app/widgets/custom_textfield.dart';
+import 'package:fruits_app/widgets/donthave_account.dart';
+import 'package:fruits_app/widgets/or_devider.dart';
+import 'package:fruits_app/widgets/social_login_button.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
-
+  static const String routeName = 'LoginViewBody';
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -52,28 +56,34 @@ class LoginViewBody extends StatelessWidget {
             SizedBox(
               height: 33,
             ),
-            Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'لا تمتلك حساب؟',
-                    style: TextStyles.semiBold16.copyWith(
-                      color: Color(0xFF616A6B),
-                    ),
-                  ),
-                  TextSpan(
-                    text: ' ',
-                    style: TextStyles.semiBold16.copyWith(
-                      color: Color(0xFF616A6B),
-                    ),
-                  ),
-                  TextSpan(
-                    text: 'قم بانشاء حساب',
-                    style: TextStyles.semiBold16
-                        .copyWith(color: AppColors.primaryColor),
-                  ),
-                ],
-              ),
+            DontHaveAccountWidget(),
+            SizedBox(
+              height: 33,
+            ),
+            OrDevider(),
+            SizedBox(
+              height: 16,
+            ),
+            SocialLoginButton(
+              onPressed: () {},
+              image: Assets.assetsImagesGoogle,
+              title: ' تسجيل بواسطة جوجل',
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            SocialLoginButton(
+              onPressed: () {},
+              image: Assets.assetsImagesApple,
+              title: 'تسجيل بواسطة أبل',
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            SocialLoginButton(
+              onPressed: () {},
+              image: Assets.assetsImagesFacebook,
+              title: 'تسجيل بواسطة فيسبوك',
             ),
           ],
         ),
