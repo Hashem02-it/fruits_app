@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_app/constants.dart';
+import 'package:fruits_app/widgets/custom_button.dart';
 import 'package:fruits_app/widgets/custom_textfield.dart';
+import 'package:fruits_app/widgets/havean_account.dart';
 import 'package:fruits_app/widgets/terms_and_contitions.dart';
 
 class SignupViewBody extends StatelessWidget {
@@ -8,7 +10,7 @@ class SignupViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: kHorizantalPadding),
         child: Column(
@@ -42,6 +44,14 @@ class SignupViewBody extends StatelessWidget {
               height: 16,
             ),
             TermsAndContitions(),
+            SizedBox(
+              height: 16,
+            ),
+            CustomButton(onPressed: () {}, text: 'إنشاء حساب جديد'),
+            SizedBox(
+              height: 26,
+            ),
+            HaveAccountWidget(),
           ],
         ),
       ),
