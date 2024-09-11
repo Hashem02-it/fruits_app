@@ -45,5 +45,9 @@ class Assets {
   /// Assets for assetsImagesSplashBottom
   /// assets/images/splash_bottom.svg
   static const String assetsImagesSplashBottom = "assets/images/splash_bottom.svg";
+
+  /// Assets for assetsImagesVector
+  /// assets/images/Vector.svg
+  static const String assetsImagesVector = "assets/images/Vector.svg";
 }
 
