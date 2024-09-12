@@ -3,13 +3,25 @@ import 'package:fruits_app/core/utils/app_text_styles.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField(
-      {super.key, required this.hintText, this.keyboardType, this.suffixIcon});
+      {super.key,
+      required this.hintText,
+      this.keyboardType,
+      this.suffixIcon,
+      this.onSaved});
   final String hintText;
   final TextInputType? keyboardType;
   final Widget? suffixIcon;
+  final Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved: onSaved,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'هذا الحقل مطلوب';
+        }
+        return null;
+      },
       keyboardType: keyboardType,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
