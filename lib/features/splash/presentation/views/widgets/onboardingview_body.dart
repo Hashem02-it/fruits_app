@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits_app/constants.dart';
 import 'package:fruits_app/core/services/shared_prefences_singleton.dart';
 import 'package:fruits_app/core/utils/app_colors.dart';
-import 'package:fruits_app/features/auth/login_view.dart';
+import 'package:fruits_app/features/auth/signin_view.dart';
 import 'package:fruits_app/features/splash/presentation/views/widgets/onboarding_pageview.dart';
 import 'package:fruits_app/widgets/custom_button.dart';
 
@@ -62,7 +62,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             child: CustomButton(
                 onPressed: () {
                   Prefs.setBool(kIsOnBoardingViewSeen, true);
-                  Navigator.pushReplacementNamed(context, LoginView.routeName);
+                  Navigator.pushReplacementNamed(context, SigninView.routeName);
                 },
                 text: 'ابدأ الان'),
           ),

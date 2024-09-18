@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_app/constants.dart';
+import 'package:fruits_app/core/helper_functions/errorsnackbar.dart';
 import 'package:fruits_app/features/auth/presentation/views/cubits/signup_cubit/signup_cubit.dart';
 import 'package:fruits_app/widgets/custom_button.dart';
 import 'package:fruits_app/widgets/custom_textfield.dart';
 import 'package:fruits_app/widgets/havean_account.dart';
+import 'package:fruits_app/widgets/password_field.dart';
 import 'package:fruits_app/widgets/terms_and_contitions.dart';
 
 class SignupViewBody extends StatefulWidget {
@@ -19,6 +21,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
 
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email, password, name;
+  late bool isTermsAccepted = false;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -52,21 +55,20 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               SizedBox(
                 height: 16,
               ),
-              CustomTextFormField(
+              PasswordField(
                 onSaved: (value) {
                   password = value!;
                 },
-                keyboardType: TextInputType.visiblePassword,
-                suffixIcon: Icon(
-                  Icons.visibility,
-                  color: Color(0xffC9CECF),
-                ),
-                hintText: 'كلمة المرور',
               ),
               SizedBox(
                 height: 16,
               ),
-              TermsAndContitions(),
+              TermsAndContitions(
+                onchanged: (value) {
+                  isTermsAccepted = value;
+                  setState(() {});
+                },
+              ),
               SizedBox(
                 height: 16,
               ),
@@ -74,10 +76,14 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      context
-                          .read<SignupCubit>()
-                          .createUserWithEmailAndPassword(
-                              email, password, name);
+                      if (isTermsAccepted) {
+                        context
+                            .read<SignupCubit>()
+                            .createUserWithEmailAndPassword(
+                                email, password, name);
+                      } else {
+                        buildErrorBar(context, 'الرجاء قبول الشروط والإحكام');
+                      }
                     } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;

@@ -9,8 +9,8 @@ import 'package:fruits_app/widgets/donthave_account.dart';
 import 'package:fruits_app/widgets/or_devider.dart';
 import 'package:fruits_app/widgets/social_login_button.dart';
 
-class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
+class SigninViewBody extends StatelessWidget {
+  const SigninViewBody({super.key});
   static const String routeName = 'LoginViewBody';
   @override
   Widget build(BuildContext context) {
