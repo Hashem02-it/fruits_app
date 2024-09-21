@@ -7,6 +7,7 @@ import 'package:fruits_app/core/services/firebase_auth_service.dart';
 import 'package:fruits_app/features/auth/data/models/user_model.dart';
 import 'package:fruits_app/features/auth/domain/entities/user_entitiy.dart';
 import 'package:fruits_app/features/auth/domain/repos/auth_repo.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class AuthRepoImplementation extends AuthRepo {
   final FirebaseAuthService firebaseAuthService;
@@ -39,6 +40,28 @@ class AuthRepoImplementation extends AuthRepo {
     } catch (e) {
       log('Exeption in auth repo implementation ${e.toString()}');
       return left(ServerFailure('لقد حدث خطأ ما، الرجاء المحاولة لاحقاً'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntitiy>> signInWithGoogle() async {
+    try {
+      var user = await firebaseAuthService.signInWithGoogle();
+      return Right(UserModel.fromFirebaseUser(user));
+    } catch (e) {
+      log('Exeption in auth repo implementation ${e.toString()}');
+      return left(ServerFailure('لقد حدث خطأ ما الرجاء المحاولة لاحقاً'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntitiy>> signInWithFacebook() async {
+    try {
+      var user = await firebaseAuthService.signInWithFacebook();
+      return Right(UserModel.fromFirebaseUser(user));
+    } catch (e) {
+      log('Exeption in auth repo implementation ${e.toString()}');
+      return left(ServerFailure('لقد حدث خطأ ما الرجاء المحاولة لاحقاً'));
     }
   }
 }

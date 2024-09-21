@@ -11,6 +11,7 @@ import 'package:fruits_app/widgets/donthave_account.dart';
 import 'package:fruits_app/widgets/or_devider.dart';
 import 'package:fruits_app/widgets/password_field.dart';
 import 'package:fruits_app/widgets/social_login_button.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class SigninViewBody extends StatefulWidget {
   const SigninViewBody({super.key});
@@ -91,7 +92,9 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                 height: 16,
               ),
               SocialLoginButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read<SigninCubit>().signinWithGoogle();
+                },
                 image: Assets.assetsImagesGoogle,
                 title: ' تسجيل بواسطة جوجل',
               ),
@@ -107,7 +110,9 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                 height: 16,
               ),
               SocialLoginButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read<SigninCubit>().signinWithFacebook();
+                },
                 image: Assets.assetsImagesFacebook,
                 title: 'تسجيل بواسطة فيسبوك',
               ),
