@@ -7,7 +7,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:fruits_app/core/errors/exceptions.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 class FirebaseAuthService {
@@ -110,7 +109,7 @@ class FirebaseAuthService {
   /// Generates a cryptographically secure random nonce, to be included in a
   /// credential request.
   String generateNonce([int length = 32]) {
-    final charset =
+    const charset =
         '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._';
     final random = math.Random.secure();
     return List.generate(length, (_) => charset[random.nextInt(charset.length)])

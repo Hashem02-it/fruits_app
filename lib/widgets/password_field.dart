@@ -28,11 +28,11 @@ class _PasswordFieldState extends State<PasswordField> {
           setState(() {});
         },
         child: obscureText
-            ? Icon(
+            ? const Icon(
                 Icons.visibility,
                 color: Color(0xffC9CECF),
               )
-            : Icon(
+            : const Icon(
                 Icons.visibility_off,
                 color: Color(0xffC9CECF),
               ),

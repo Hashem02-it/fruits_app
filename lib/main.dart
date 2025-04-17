@@ -32,7 +32,7 @@ class FrtuitHub extends StatelessWidget {
         fontFamily: 'Cairo',
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
       ),
-      localizationsDelegates: [
+      localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

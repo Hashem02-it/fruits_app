@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruits_app/core/utils/app_images.dart';
 import 'package:fruits_app/core/utils/app_text_styles.dart';
 
 class SocialLoginButton extends StatelessWidget {
@@ -20,7 +19,7 @@ class SocialLoginButton extends StatelessWidget {
       child: TextButton(
         style: TextButton.styleFrom(
             shape: RoundedRectangleBorder(
-          side: BorderSide(
+          side: const BorderSide(
             width: 1.0,
             color: Color(0xFFDCDEDE),
           ),
@@ -28,7 +27,8 @@ class SocialLoginButton extends StatelessWidget {
         )),
         onPressed: onPressed,
         child: ListTile(
-          visualDensity: VisualDensity(vertical: VisualDensity.minimumDensity),
+          visualDensity:
+              const VisualDensity(vertical: VisualDensity.minimumDensity),
           leading: SvgPicture.asset(image),
           title: Text(
             title,

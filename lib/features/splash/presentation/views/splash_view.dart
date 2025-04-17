@@ -7,7 +7,7 @@ class SplashView extends StatelessWidget {
   static const routeName = 'spalsh';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SplashViewBody(),
     );
   }

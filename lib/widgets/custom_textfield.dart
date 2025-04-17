@@ -29,9 +29,9 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         hintText: hintText,
-        hintStyle: TextStyles.bold13.copyWith(color: Color(0xFF949D9E)),
+        hintStyle: TextStyles.bold13.copyWith(color: const Color(0xFF949D9E)),
         filled: true,
-        fillColor: Color(0xFFF9FAFA),
+        fillColor: const Color(0xFFF9FAFA),
         border: buildBorder(),
         enabledBorder: buildBorder(),
         focusedBorder: buildBorder(),
@@ -42,7 +42,7 @@ class CustomTextFormField extends StatelessWidget {
   OutlineInputBorder buildBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(4.0),
-      borderSide: BorderSide(
+      borderSide: const BorderSide(
         width: 1.0,
         color: Color(0xFFE6E9E9),
       ),

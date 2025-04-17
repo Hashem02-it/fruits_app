@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:fruits_app/features/auth/domain/entities/user_entitiy.dart';
 import 'package:fruits_app/features/auth/domain/repos/auth_repo.dart';
 import 'package:meta/meta.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 part 'signin_state.dart';
 

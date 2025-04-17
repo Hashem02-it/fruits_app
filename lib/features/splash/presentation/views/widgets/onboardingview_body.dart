@@ -33,6 +33,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -46,10 +47,10 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             activeColor: AppColors.primaryColor,
             color: currentPage == 1
                 ? AppColors.primaryColor
-                : AppColors.primaryColor.withOpacity(.5),
+                : AppColors.primaryColor.withValues(alpha: 0.5 * 255),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 29,
         ),
         Visibility(
@@ -67,7 +68,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 text: 'ابدأ الان'),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 43,
         ),
       ],

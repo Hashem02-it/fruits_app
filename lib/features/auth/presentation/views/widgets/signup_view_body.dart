@@ -26,13 +26,13 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: kHorizantalPadding),
+        padding: const EdgeInsets.symmetric(horizontal: kHorizantalPadding),
         child: Form(
           key: formKey,
           autovalidateMode: autovalidateMode,
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               CustomTextFormField(
@@ -42,7 +42,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 keyboardType: TextInputType.visiblePassword,
                 hintText: 'الاسم كامل',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               CustomTextFormField(
@@ -52,7 +52,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 keyboardType: TextInputType.visiblePassword,
                 hintText: 'البريد الإلكتروني',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               PasswordField(
@@ -60,7 +60,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   password = value!;
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               TermsAndContitions(
@@ -69,7 +69,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   setState(() {});
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               CustomButton(
@@ -91,10 +91,10 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                     }
                   },
                   text: 'إنشاء حساب جديد'),
-              SizedBox(
+              const SizedBox(
                 height: 26,
               ),
-              HaveAccountWidget(),
+              const HaveAccountWidget(),
             ],
           ),
         ),

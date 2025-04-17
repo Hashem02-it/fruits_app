@@ -17,13 +17,15 @@ class CustomCheckbox extends StatelessWidget {
       child: AnimatedContainer(
         width: 24,
         height: 24,
-        duration: Duration(milliseconds: 150),
+        duration: const Duration(milliseconds: 150),
         decoration: ShapeDecoration(
           color: isChecked ? AppColors.primaryColor : Colors.white,
           shape: RoundedRectangleBorder(
             side: BorderSide(
                 width: 1.50,
-                color: isChecked ? AppColors.primaryColor : Color(0xFFDCDEDE)),
+                color: isChecked
+                    ? AppColors.primaryColor
+                    : const Color(0xFFDCDEDE)),
             borderRadius: BorderRadius.circular(8),
           ),
           // RoundedRectangleBorder

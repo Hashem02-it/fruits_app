@@ -17,13 +17,13 @@ class DontHaveAccountWidget extends StatelessWidget {
           TextSpan(
             text: 'لا تمتلك حساب؟',
             style: TextStyles.semiBold16.copyWith(
-              color: Color(0xFF616A6B),
+              color: const Color(0xFF616A6B),
             ),
           ),
           TextSpan(
             text: ' ',
             style: TextStyles.semiBold16.copyWith(
-              color: Color(0xFF616A6B),
+              color: const Color(0xFF616A6B),
             ),
           ),
           TextSpan(

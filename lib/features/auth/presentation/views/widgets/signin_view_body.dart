@@ -13,7 +13,6 @@ import 'package:fruits_app/widgets/donthave_account.dart';
 import 'package:fruits_app/widgets/or_devider.dart';
 import 'package:fruits_app/widgets/password_field.dart';
 import 'package:fruits_app/widgets/social_login_button.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class SigninViewBody extends StatefulWidget {
   const SigninViewBody({super.key});
@@ -38,7 +37,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
           autovalidateMode: autovalidateMode,
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               CustomTextFormField(
@@ -47,7 +46,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                 },
                 hintText: 'البريد الإلكتروني',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               PasswordField(
@@ -55,7 +54,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                   password = value!;
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Row(
@@ -68,7 +67,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 33,
               ),
               CustomButton(
@@ -82,15 +81,15 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                     }
                   },
                   text: 'تسجيل دخول'),
-              SizedBox(
+              const SizedBox(
                 height: 33,
               ),
-              DontHaveAccountWidget(),
-              SizedBox(
+              const DontHaveAccountWidget(),
+              const SizedBox(
                 height: 33,
               ),
-              OrDevider(),
-              SizedBox(
+              const OrDevider(),
+              const SizedBox(
                 height: 16,
               ),
               SocialLoginButton(
@@ -100,7 +99,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                 image: Assets.assetsImagesGoogle,
                 title: ' تسجيل بواسطة جوجل',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Platform.isIOS
@@ -113,7 +112,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                           image: Assets.assetsImagesApple,
                           title: 'تسجيل بواسطة أبل',
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 16,
                         ),
                       ],

@@ -10,7 +10,6 @@ import 'package:fruits_app/core/utils/backend_endpoints.dart';
 import 'package:fruits_app/features/auth/data/models/user_model.dart';
 import 'package:fruits_app/features/auth/domain/entities/user_entitiy.dart';
 import 'package:fruits_app/features/auth/domain/repos/auth_repo.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class AuthRepoImplementation extends AuthRepo {
   final FirebaseAuthService firebaseAuthService;

@@ -18,33 +18,33 @@ class OnboardingPageview extends StatelessWidget {
           image: Assets.assetsImagesItemViewpage1Image,
           backgroungImage: Assets.assetsImagesItemViewpage1BackgroundImage,
           subTitle:
-              'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
+              'اكتشف تجربة تسوق فريدة مع JUST MART. استكشف مجموعتنا الواسعة من المنتجات الممتازة واحصل على أفضل العروض والجودة العالية.',
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'مرحبًا بك في',
                 style: TextStyles.bold23,
               ),
               Text(
-                ' HUB',
+                ' MART',
                 style:
                     TextStyles.bold23.copyWith(color: AppColors.seconderyColor),
               ),
               Text(
-                'Fruit',
+                'JUST',
                 style:
                     TextStyles.bold23.copyWith(color: AppColors.primaryColor),
               ),
             ],
           ),
         ),
-        PageitemView(
+        const PageitemView(
           isVisible: false,
           image: Assets.assetsImagesItemViewpage2Image,
           backgroungImage: Assets.assetsImagesItemViewpage2BackgroundImage,
           subTitle:
-              'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
+              'نقدم لك أفضل المنتجات المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار المنتجات المثالية',
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

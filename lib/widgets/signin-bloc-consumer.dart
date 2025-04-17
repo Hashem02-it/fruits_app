@@ -8,7 +8,6 @@ import 'package:fruits_app/features/auth/presentation/views/cubits/signin/signin
 import 'package:fruits_app/features/auth/presentation/views/widgets/signin_view_body.dart';
 import 'package:fruits_app/features/home/presentation/views/home_view.dart';
 import 'package:fruits_app/widgets/custom_progress_hud.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SigninViewBodyBlocConsumer extends StatelessWidget {
   const SigninViewBodyBlocConsumer({
@@ -30,7 +29,7 @@ class SigninViewBodyBlocConsumer extends StatelessWidget {
       builder: (context, state) {
         return CustomProgressHud(
           isLoading: state is SigninLoading ? true : false,
-          child: SigninViewBody(),
+          child: const SigninViewBody(),
         );
       },
     );

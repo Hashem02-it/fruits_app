@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fruits_app/features/home/presentation/views/widgets/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
@@ -8,8 +6,8 @@ class HomeView extends StatelessWidget {
   static const String routeName = 'home_view';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: HomeViewBody(),
+    return const Scaffold(
+      body: SafeArea(child: HomeViewBody()),
     );
   }
 }

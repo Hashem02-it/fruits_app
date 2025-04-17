@@ -1,5 +1,3 @@
-import 'package:fruits_app/features/auth/domain/entities/user_entitiy.dart';
-
 abstract class DatabaseService {
   Future<void> addData(
       {required String path,
