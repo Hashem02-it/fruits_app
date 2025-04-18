@@ -39,8 +39,14 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 onSaved: (value) {
                   name = value!;
                 },
-                keyboardType: TextInputType.visiblePassword,
+                keyboardType: TextInputType.text,
                 hintText: 'الاسم كامل',
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'الرجاء إدخال الاسم الكامل';
+                  }
+                  return null;
+                },
               ),
               const SizedBox(
                 height: 16,
@@ -49,8 +55,21 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 onSaved: (value) {
                   email = value!;
                 },
-                keyboardType: TextInputType.visiblePassword,
+                keyboardType: TextInputType.emailAddress,
                 hintText: 'البريد الإلكتروني',
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'الرجاء إدخال البريد الإلكتروني';
+                  }
+
+                  // تحقق أن البريد ينتهي بـ @just.edu.jo
+                  final regex = RegExp(r'^[\w-\.]+@just\.edu\.jo$');
+                  if (!regex.hasMatch(value)) {
+                    return 'البريد الإلكتروني يجب أن ينتهي بـ just.edu.jo@';
+                  }
+
+                  return null;
+                },
               ),
               const SizedBox(
                 height: 16,
@@ -58,6 +77,14 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               PasswordField(
                 onSaved: (value) {
                   password = value!;
+                },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'الرجاء إدخال كلمة المرور';
+                  } else if (value.length < 6) {
+                    return 'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
+                  }
+                  return null;
                 },
               ),
               const SizedBox(

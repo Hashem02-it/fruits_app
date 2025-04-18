@@ -5,8 +5,10 @@ class PasswordField extends StatefulWidget {
   const PasswordField({
     super.key,
     this.onSaved,
+    this.validator,
   });
   final void Function(String?)? onSaved;
+  final String? Function(String?)? validator;
 
   @override
   State<PasswordField> createState() => _PasswordFieldState();
@@ -21,6 +23,7 @@ class _PasswordFieldState extends State<PasswordField> {
       onSaved: (value) {
         widget.onSaved!(value);
       },
+      validator: widget.validator,
       keyboardType: TextInputType.visiblePassword,
       suffixIcon: GestureDetector(
         onTap: () {
