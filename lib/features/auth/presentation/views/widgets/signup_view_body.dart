@@ -22,6 +22,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email, password, name;
   late bool isTermsAccepted = false;
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -63,9 +64,12 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   }
 
                   // تحقق أن البريد ينتهي بـ @just.edu.jo
-                  final regex = RegExp(r'^[\w-\.]+@just\.edu\.jo$');
+                  final regex = RegExp(r'^[\w\.-]+@[\w-]+\.(just\.edu\.jo)$');
+
+                  // RegExp(r'.*');
+
                   if (!regex.hasMatch(value)) {
-                    return 'البريد الإلكتروني يجب أن ينتهي بـ just.edu.jo@';
+                    return 'البريد الإلكتروني يجب أن ينتهي بـ YourCollege.just.edu.jo@';
                   }
 
                   return null;
@@ -99,6 +103,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               const SizedBox(
                 height: 16,
               ),
+              const SizedBox(height: 16),
               CustomButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
@@ -108,6 +113,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                             .read<SignupCubit>()
                             .createUserWithEmailAndPassword(
                                 email, password, name);
+                        buildErrorBar(context, 'تم انشاء الحساب بنجاح');
                       } else {
                         buildErrorBar(context, 'الرجاء قبول الشروط والإحكام');
                       }
