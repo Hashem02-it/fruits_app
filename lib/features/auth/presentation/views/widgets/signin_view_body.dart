@@ -204,13 +204,19 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               const SizedBox(
                 height: 16,
               ),
-              SocialLoginButton(
-                onPressed: () {
-                  context.read<SigninCubit>().signinWithGoogle();
-                },
-                image: Assets.assetsImagesGoogle,
-                title: ' تسجيل بواسطة جوجل',
-              ),
+              Platform.isAndroid //>>>to hide google button <<<<
+                  ? Column(
+                      children: [
+                        SocialLoginButton(
+                          onPressed: () {
+                            context.read<SigninCubit>().signinWithGoogle();
+                          },
+                          image: Assets.assetsImagesGoogle,
+                          title: ' تسجيل بواسطة جوجل',
+                        ),
+                      ],
+                    )
+                  : Container(),
               const SizedBox(
                 height: 16,
               ),

@@ -32,7 +32,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
             // SvgPicture.asset(Assets.assetsImagesPlant),
           ],
         ),
-        SvgPicture.asset(Assets.assetsImagesLogo),
+        SvgPicture.asset(Assets.assetsImagesJustMartIcons),
         SvgPicture.asset(
           Assets.assetsImagesSplashBottom,
           fit: BoxFit.fill,
