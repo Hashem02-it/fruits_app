@@ -41,3 +41,27 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+
+
+# Flutter/Dart specific files
+.dart_tool/
+.idea/
+.packages
+pubspec.lock  # You can choose to leave this if you want to lock dependencies, but typically leave it for app development
+
+# Build files (ignore build outputs but don't affect app development)
+build/
+
+# Gradle-related files (don't affect app code)
+.gradle/
+gradle-wrapper.jar
+gradle-wrapper.properties
+*.gradle
+
+# Android-specific files (ignore Android build files, but leave source code)
+# This can be adjusted if you have custom Android code, but typically:
+android/.gradle/
+android/build/
+
