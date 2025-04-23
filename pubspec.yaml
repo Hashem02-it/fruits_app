@@ -51,6 +51,7 @@ dependencies:
   sign_in_with_apple: ^6.1.2
   crypto: ^3.0.5
   cloud_firestore: ^5.4.2
+  flutter_svg_provider: ^1.0.7
 
 dev_dependencies:
   flutter_test:
