@@ -12,7 +12,7 @@ class BottomNavigationBarEntity {
 
 List<BottomNavigationBarEntity> get bottomNavigationBarItems => [
       BottomNavigationBarEntity(
-          activeImage: Assets.assetsImagesVector,
+          activeImage: Assets.assetsImagesVuesaxOutlineHome,
           inAactiveImage: Assets.assetsImagesVuesaxOutlineHome,
           name: ' الرئيسية'),
       BottomNavigationBarEntity(

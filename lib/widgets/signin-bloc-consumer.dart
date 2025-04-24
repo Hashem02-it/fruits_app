@@ -19,6 +19,7 @@ class SigninViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<SigninCubit, SigninState>(
       listener: (context, state) {
         if (state is SigninSuccess) {
+          //add data  use to shared preferemces
           Navigator.pushNamed(context, HomeView.routeName);
           log('success');
         }

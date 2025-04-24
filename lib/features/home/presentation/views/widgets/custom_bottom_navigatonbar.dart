@@ -4,9 +4,16 @@ import 'package:fruits_app/core/utils/app_images.dart';
 import 'package:fruits_app/features/home/presentation/views/domain/entites/bottom_navigation_bar_entity.dart';
 import 'package:fruits_app/features/home/presentation/views/widgets/naivtion_bar_item.dart';
 
-class CustomBottomNavigatonbar extends StatelessWidget {
+class CustomBottomNavigatonbar extends StatefulWidget {
   const CustomBottomNavigatonbar({super.key});
 
+  @override
+  State<CustomBottomNavigatonbar> createState() =>
+      _CustomBottomNavigatonbarState();
+}
+
+class _CustomBottomNavigatonbarState extends State<CustomBottomNavigatonbar> {
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,10 +37,23 @@ class CustomBottomNavigatonbar extends StatelessWidget {
         ],
       ),
       child: Row(
-        children: bottomNavigationBarItems.map((e) {
-          return NaivationBarItem(
-            bottomNavigationBarEntity: e,
-            isSelected: false,
+        children: bottomNavigationBarItems.asMap().entries.map((e) {
+          var index = e.key;
+          var entity = e.value;
+
+          return Expanded(
+            flex: index == selectedIndex ? 3 : 2,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedIndex = index;
+                });
+              },
+              child: NaivationBarItem(
+                isSelected: selectedIndex == index,
+                bottomNavigationBarEntity: entity,
+              ),
+            ),
           );
         }).toList(),
       ),

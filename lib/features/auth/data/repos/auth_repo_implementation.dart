@@ -52,6 +52,7 @@ class AuthRepoImplementation extends AuthRepo {
       var user =
           await firebaseAuthService.signInWithEmailAndPassword(email, password);
       var userEntity = await getUserData(uID: user.uid);
+      // save user data to database
       return Right(userEntity);
     } on CustomException catch (e) {
       return left(ServerFailure(e.message));
