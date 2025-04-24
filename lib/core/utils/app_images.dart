@@ -100,6 +100,10 @@ class Assets {
   static const String assetsImagesSearchNormal =
       "assets/images/search-normal.svg";
 
+  /// Assets for assetsImagesShoes
+  /// assets/images/shoes.png
+  static const String assetsImagesShoes = "assets/images/shoes.png";
+
   /// Assets for assetsImagesSplashBottom
   /// assets/images/splash_bottom.svg
   static const String assetsImagesSplashBottom =
@@ -108,4 +112,9 @@ class Assets {
   /// Assets for assetsImagesVector
   /// assets/images/Vector.svg
   static const String assetsImagesVector = "assets/images/Vector.svg";
+
+  /// Assets for assetsImagesWaterMellon
+  /// assets/images/water_mellon.svg
+  static const String assetsImagesWaterMellon =
+      "assets/images/water_mellon.svg";
 }
