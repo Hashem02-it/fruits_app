@@ -6,9 +6,21 @@ class Assets {
   /// assets/images/apple.svg
   static const String assetsImagesApple = "assets/images/apple.svg";
 
+  /// Assets for assetsImagesElectonics
+  /// assets/images/electonics.svg
+  static const String assetsImagesElectonics = "assets/images/electonics.svg";
+
+  /// Assets for assetsImagesElectronicsTest
+  /// assets/images/electronics_test.png
+  static const String assetsImagesElectronicsTest = "assets/images/electronics_test.png";
+
   /// Assets for assetsImagesFacebook
   /// assets/images/facebook.svg
   static const String assetsImagesFacebook = "assets/images/facebook.svg";
+
+  /// Assets for assetsImagesFeaturedItem
+  /// assets/images/featured_item.svg
+  static const String assetsImagesFeaturedItem = "assets/images/featured_item.svg";
 
   /// Assets for assetsImagesFiltter
   /// assets/images/filtter.svg
@@ -74,6 +86,10 @@ class Assets {
   /// assets/images/search-normal.svg
   static const String assetsImagesSearchNormal = "assets/images/search-normal.svg";
 
+  /// Assets for assetsImagesShoes
+  /// assets/images/shoes.png
+  static const String assetsImagesShoes = "assets/images/shoes.png";
+
   /// Assets for assetsImagesSplashBottom
   /// assets/images/splash_bottom.svg
   static const String assetsImagesSplashBottom = "assets/images/splash_bottom.svg";
@@ -81,5 +97,37 @@ class Assets {
   /// Assets for assetsImagesVector
   /// assets/images/Vector.svg
   static const String assetsImagesVector = "assets/images/Vector.svg";
+
+  /// Assets for assetsImagesVuesaxBoldProducts
+  /// assets/images/vuesax/bold/products.svg
+  static const String assetsImagesVuesaxBoldProducts = "assets/images/vuesax/bold/products.svg";
+
+  /// Assets for assetsImagesVuesaxBoldShoppingCart
+  /// assets/images/vuesax/bold/shopping-cart.svg
+  static const String assetsImagesVuesaxBoldShoppingCart = "assets/images/vuesax/bold/shopping-cart.svg";
+
+  /// Assets for assetsImagesVuesaxBoldUser
+  /// assets/images/vuesax/bold/user.svg
+  static const String assetsImagesVuesaxBoldUser = "assets/images/vuesax/bold/user.svg";
+
+  /// Assets for assetsImagesVuesaxBoldVector
+  /// assets/images/vuesax/bold/Vector.svg
+  static const String assetsImagesVuesaxBoldVector = "assets/images/vuesax/bold/Vector.svg";
+
+  /// Assets for assetsImagesVuesaxOutlineHome
+  /// assets/images/vuesax/outline/home.svg
+  static const String assetsImagesVuesaxOutlineHome = "assets/images/vuesax/outline/home.svg";
+
+  /// Assets for assetsImagesVuesaxOutlineProducts
+  /// assets/images/vuesax/outline/products.svg
+  static const String assetsImagesVuesaxOutlineProducts = "assets/images/vuesax/outline/products.svg";
+
+  /// Assets for assetsImagesVuesaxOutlineShoppingCart
+  /// assets/images/vuesax/outline/shopping-cart.svg
+  static const String assetsImagesVuesaxOutlineShoppingCart = "assets/images/vuesax/outline/shopping-cart.svg";
+
+  /// Assets for assetsImagesVuesaxOutlineUser
+  /// assets/images/vuesax/outline/user.svg
+  static const String assetsImagesVuesaxOutlineUser = "assets/images/vuesax/outline/user.svg";
 }
 

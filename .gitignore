@@ -43,6 +43,7 @@ app.*.map.json
 /android/app/release
 
 
+<<<<<<< HEAD
 # Flutter/Dart specific files
 .dart_tool/
 .idea/
@@ -62,3 +63,8 @@ gradle-wrapper.properties
 # This can be adjusted if you have custom Android code, but typically:
 android/.gradle/
 android/build/
+=======
+
+
+
+>>>>>>> 62be802ebf4a2182d489b370adea424f6e8dd475
