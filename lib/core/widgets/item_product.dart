@@ -35,11 +35,11 @@ class ItemProduct extends StatelessWidget {
                 Image.asset(
                   Assets.assetsImagesShoes,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 ListTile(
-                  title: Text(
+                  title: const Text(
                     'احذية',
                     style: TextStyles.semiBold16,
                   ),
@@ -73,7 +73,7 @@ class ItemProduct extends StatelessWidget {
                       ],
                     ),
                   ),
-                  trailing: CircleAvatar(
+                  trailing: const CircleAvatar(
                     backgroundColor: AppColors.primaryColor,
                     child: Icon(
                       Icons.add,

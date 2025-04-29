@@ -6,7 +6,7 @@ import 'package:fruits_app/widgets/noftication_widgets.dart';
 AppBar customAppBar(context, {required String title}) {
   return AppBar(
       backgroundColor: Colors.white,
-      actions: [
+      actions: const [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: NotificationWedget(),

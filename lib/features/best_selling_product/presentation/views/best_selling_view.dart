@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_app/core/utils/app_text_styles.dart';
 import 'package:fruits_app/features/best_selling_product/presentation/views/widgets/best_selling_view_body.dart';
 import 'package:fruits_app/features/home/presentation/views/widgets/build_app_bar.dart';
-import 'package:fruits_app/widgets/noftication_widgets.dart';
 
 class BestSellingView extends StatelessWidget {
   const BestSellingView({super.key});

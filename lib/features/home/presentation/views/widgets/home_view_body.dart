@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fruits_app/constants.dart';
-import 'package:fruits_app/core/widgets/item_product.dart';
 import 'package:fruits_app/features/home/presentation/views/widgets/best_selling_gridView.dart';
 import 'package:fruits_app/features/home/presentation/views/widgets/best_selling_header.dart';
 import 'package:fruits_app/features/home/presentation/views/widgets/custom_home_appbar.dart';

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:fruits_app/core/utils/app_images.dart';
 import 'package:fruits_app/features/home/presentation/views/domain/entites/bottom_navigation_bar_entity.dart';
 import 'package:fruits_app/features/home/presentation/views/widgets/naivtion_bar_item.dart';
 

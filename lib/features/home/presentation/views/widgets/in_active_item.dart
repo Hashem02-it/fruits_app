@@ -6,8 +6,6 @@ class InActiveItem extends StatelessWidget {
   final String image;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: SvgPicture.asset(image),
-    );
+    return Center(child: SvgPicture.asset(image));
   }
 }
