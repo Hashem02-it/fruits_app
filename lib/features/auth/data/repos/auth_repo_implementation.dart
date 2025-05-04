@@ -17,17 +17,14 @@ import 'package:fruits_app/features/auth/domain/repos/auth_repo.dart';
 class AuthRepoImplementation extends AuthRepo {
   final FirebaseAuthService firebaseAuthService;
   final DatabaseService databaseService;
-  AuthRepoImplementation(
-      {required this.databaseService, required this.firebaseAuthService});
+  AuthRepoImplementation({required this.databaseService, required this.firebaseAuthService});
   @override
-  Future<Either<Failure, UserEntitiy>> createUserWithEmailAndPassword(
-      String email, String password, String name) async {
+  Future<Either<Failure, UserEntitiy>> createUserWithEmailAndPassword(String email, String password, String name, String role) async {
     User? user;
     try {
-      user = await firebaseAuthService.createUserWithEmailAndPassword(
-          email, password);
+      user = await firebaseAuthService.createUserWithEmailAndPassword(email, password);
 
-      var userEntity = UserEntitiy(name: name, email: email, uID: user.uid);
+      var userEntity = UserEntitiy(name: name, email: email, uID: user.uid, role: role);
       await addUserData(user: userEntity);
 
       return Right(userEntity);
@@ -50,19 +47,25 @@ class AuthRepoImplementation extends AuthRepo {
   }
 
   @override
-  Future<Either<Failure, UserEntitiy>> signInWithEmailAndPassword(
-      String email, String password) async {
+  Future<Either<Failure, UserEntitiy>> signInWithEmailAndPassword(String email, String password) async {
     try {
-      var user =
-          await firebaseAuthService.signInWithEmailAndPassword(email, password);
-      var userEntity = await getUserData(uID: user.uid);
-      // save user data to database
-      return Right(userEntity);
+      var user = await firebaseAuthService.signInWithEmailAndPassword(email, password);
+
+      try {
+        var userEntity = await getUserData(uID: user.uid);
+        return Right(userEntity);
+      } on CustomException catch (_) {
+        // User exists in Auth but not in Firestore - create their record
+        var newUser =
+            UserEntitiy(name: user.displayName ?? 'New User', email: user.email ?? email, uID: user.uid, role: 'user' // default role
+                );
+        await addUserData(user: newUser);
+        return Right(newUser);
+      }
     } on CustomException catch (e) {
-      return left(ServerFailure(e.message));
+      return Left(ServerFailure(e.message));
     } catch (e) {
-      log('Exeption in auth repo implementation ${e.toString()}');
-      return left(ServerFailure('لقد حدث خطأ ما، الرجاء المحاولة لاحقاً'));
+      return Left(ServerFailure('An error occurred'));
     }
   }
 
@@ -72,8 +75,7 @@ class AuthRepoImplementation extends AuthRepo {
     try {
       user = await firebaseAuthService.signInWithGoogle();
       var useEntity = UserModel.fromFirebaseUser(user);
-      var isUserExist = await databaseService.checkIfDataExists(
-          path: BackendEndpoints.isUserExists, documentId: user.uid);
+      var isUserExist = await databaseService.checkIfDataExists(path: BackendEndpoints.isUserExists, documentId: user.uid);
       if (isUserExist) {
         await getUserData(uID: user.uid);
       } else {
@@ -94,8 +96,7 @@ class AuthRepoImplementation extends AuthRepo {
     try {
       var user = await firebaseAuthService.signInWithFacebook();
       var useEntity = UserModel.fromFirebaseUser(user);
-      var isUserExist = await databaseService.checkIfDataExists(
-          path: BackendEndpoints.isUserExists, documentId: user.uid);
+      var isUserExist = await databaseService.checkIfDataExists(path: BackendEndpoints.isUserExists, documentId: user.uid);
       if (isUserExist) {
         await getUserData(uID: user.uid);
       } else {
@@ -127,16 +128,30 @@ class AuthRepoImplementation extends AuthRepo {
 
   @override
   Future addUserData({required UserEntitiy user}) async {
-    databaseService.addData(
-        path: BackendEndpoints.addUserData,
-        data: UserModel.fromEntity(user).toMap());
+    databaseService.addData(path: BackendEndpoints.addUserData, data: UserModel.fromEntity(user).toMap());
   }
 
   @override
   Future<UserEntitiy> getUserData({required String uID}) async {
-    var userData = await databaseService.getData(
-        path: BackendEndpoints.getUserData, documentId: uID);
-    return UserModel.fromJson(userData);
+    try {
+      log('Fetching user data for UID: $uID');
+      var userData = await databaseService.getData(path: 'users', documentId: uID);
+
+      // Proper null and empty check
+      if (userData == null || userData.isEmpty) {
+        log('No user data found for UID: $uID');
+        throw CustomException(message: 'User data not found');
+      }
+
+      // Safe casting
+      final userMap = userData as Map<String, dynamic>? ?? {};
+
+      log('User data retrieved: $userMap');
+      return UserModel.fromJson(userMap);
+    } catch (e) {
+      log('Error retrieving user data: ${e.toString()}');
+      throw CustomException(message: 'Failed to fetch user data');
+    }
   }
 
   @override

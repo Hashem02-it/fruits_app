@@ -22,7 +22,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email, password, name;
   late bool isTermsAccepted = false;
-
+  String theRole = '';
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -94,6 +94,30 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               const SizedBox(
                 height: 16,
               ),
+              ListTile(
+                title: Text('buyer'),
+                leading: Radio<String>(
+                  value: 'buyer',
+                  groupValue: theRole,
+                  onChanged: (value) {
+                    setState(() {
+                      theRole = value!;
+                    });
+                  },
+                ),
+              ),
+              ListTile(
+                title: Text('vendor'),
+                leading: Radio<String>(
+                  value: 'vendor',
+                  groupValue: theRole,
+                  onChanged: (value) {
+                    setState(() {
+                      theRole = value!;
+                    });
+                  },
+                ),
+              ),
               TermsAndContitions(
                 onchanged: (value) {
                   isTermsAccepted = value;
@@ -109,10 +133,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
                       if (isTermsAccepted) {
-                        context
-                            .read<SignupCubit>()
-                            .createUserWithEmailAndPassword(
-                                email, password, name);
+                        context.read<SignupCubit>().createUserWithEmailAndPassword(email, password, name, theRole);
                         buildErrorBar(context, 'تم انشاء الحساب بنجاح');
                       } else {
                         buildErrorBar(context, 'الرجاء قبول الشروط والإحكام');
